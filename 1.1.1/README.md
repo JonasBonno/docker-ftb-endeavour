@@ -15,10 +15,10 @@ The worldname must be the default "world".
 Settings will reset when upgrading.
 Access the console to op and whitelist.
 
-Running ftb-revelation data container:
+Running ftb-endeavour data container:
 <code>docker run --name [name of your data container] jonasbonno/ftb-endeavour:1.1.1 echo 'Data-only container'</code>
 
-Running ftb-revelation server:
+Running ftb-endeavour server:
 <code>docker run --tty=true --interactive=true --detach=true --name [name of your container] --volumes-from [name of your data container] --publish=[port on your host]:25565 jonasbonno/ftb-endeavour:1.1.1</code>
 
 When upgrading sometime items have been remove and therefor you have to confirm removal.</br>
