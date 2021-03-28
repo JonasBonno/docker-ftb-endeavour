@@ -1,4 +1,4 @@
-# ftb-endeavour - latest
+# ftb-endeavour - v1.1.1
 Feed The Beast Endeavour modpack
 made by Feed The Beast at https://feed-the-beast.com
 
