@@ -18,11 +18,11 @@ RUN useradd -m -U minecraft && \
 	wget --no-check-certificate https://api.modpacks.ch/public/modpack/80/2094/server/linux -O serverinstall_80_2094 && \
 	chmod u+x serverinstall_* && \
 	./serverinstall_* --auto && \
-  sed -i 's/-jar/-Dlog4j2.formatMsgNoLookups=true -jar/g' start.sh && \
 	rm serverinstall_* && \
 	echo "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula)." > eula.txt && \
 	echo "$(date)" >> eula.txt && \
 	echo "eula=true" >> eula.txt && \
+	sed -i 's/-jar/-Dlog4j2.formatMsgNoLookups=true -jar/g' start.sh && \
 	chown -R minecraft:minecraft /minecraft
 
 # Changing user to minecraft
