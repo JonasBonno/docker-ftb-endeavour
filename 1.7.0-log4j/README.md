@@ -1,4 +1,4 @@
-# ftb-endeavour - v1.7.0
+# ftb-endeavour - 1.7.0-log4j
 Feed The Beast Endeavour modpack
 made by Feed The Beast at https://feed-the-beast.com
 
