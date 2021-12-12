@@ -2,7 +2,7 @@
 Feed The Beast Endeavour modpack
 made by Feed The Beast at https://feed-the-beast.com
 
-Modpack for Minecraft 1.16.
+Modpack for Minecraft 1.16 with Log4j CVE-2021-44228 vulnerability mitigation.</br>
 All-purpose modpack expanding on our hugely successful FTB Revelations.</br>
 Endeavour includes mods that revolve around tech, magic, exploration and general building.
 
