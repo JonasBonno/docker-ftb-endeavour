@@ -23,7 +23,7 @@ RUN useradd -m -U minecraft && \
 	echo "$(date)" >> eula.txt && \
 	echo "eula=true" >> eula.txt && \
 	wget --no-check-certificate https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml -O log4j2_112-116.xml && \
-	sed -i 's/-jar/--Dlog4j.configurationFile=log4j2_112-116.xml -jar/g' start.sh && \
+	sed -i 's/-jar/-Dlog4j.configurationFile=log4j2_112-116.xml -jar/g' start.sh && \
 	chown -R minecraft:minecraft /minecraft
 
 # Changing user to minecraft
