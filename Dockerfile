@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM eclipse-temurin:8-jre
 
 MAINTAINER Jonas Bonno Mikkelsen (https://github.com/JonasBonno)
 
@@ -15,13 +15,15 @@ WORKDIR /minecraft
 # Creating user and downloading files
 RUN useradd -m -U minecraft && \
 	mkdir -p /minecraft/world && \
-	wget --no-check-certificate https://api.modpacks.ch/public/modpack/80/2053/server/linux -O serverinstall_80_2053 && \
+	wget --no-check-certificate https://api.modpacks.ch/public/modpack/80/2112/server/linux -O serverinstall_80_2112 && \
 	chmod u+x serverinstall_* && \
 	./serverinstall_* --auto && \
 	rm serverinstall_* && \
 	echo "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula)." > eula.txt && \
 	echo "$(date)" >> eula.txt && \
 	echo "eula=true" >> eula.txt && \
+	wget --no-check-certificate https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml -O log4j2_112-116.xml && \
+	sed -i 's/-jar/-Dlog4j.configurationFile=log4j2_112-116.xml -jar/g' start.sh && \
 	chown -R minecraft:minecraft /minecraft
 
 # Changing user to minecraft
