@@ -12,13 +12,16 @@ RUN apt-get update && \
 # Setting workdir
 WORKDIR /minecraft
 
+# Pack configuration
+ENV PACK_ID=78
+
 # Creating user and downloading files
 RUN useradd -m -U minecraft && \
 	mkdir -p /minecraft/world && \
-	wget --no-check-certificate https://api.modpacks.ch/public/modpack/80/2112/server/linux -O serverinstall_80_2112 && \
-	chmod u+x serverinstall_* && \
-	./serverinstall_* --auto && \
-	rm serverinstall_* && \
+	wget --no-check-certificate https://github.com/FTBTeam/FTB-Server-Installer/releases/download/latest/ftb-server-linux-amd64 -O serverinstaller && \
+	chmod u+x serverinstaller && \
+	./serverinstaller -auto -pack ${PACK_ID} -latest && \
+	rm serverinstaller && \
 	echo "#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula)." > eula.txt && \
 	echo "$(date)" >> eula.txt && \
 	echo "eula=true" >> eula.txt && \
